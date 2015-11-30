@@ -2,8 +2,9 @@
 build/
 bin/
 lib/
+deps/
 
-biicode.cmake
+*.cmake
 .hive.db
 CMakeLists.txt
 !blocks/**/CMakeLists.txt
