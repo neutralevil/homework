@@ -1,0 +1,9 @@
+# biicode
+build/
+bin/
+lib/
+
+biicode.cmake
+.hive.db
+CMakeLists.txt
+!blocks/**/CMakeLists.txt
