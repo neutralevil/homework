@@ -8,3 +8,6 @@ deps/
 .hive.db
 CMakeLists.txt
 !blocks/**/CMakeLists.txt
+
+# CLion
+.idea/
