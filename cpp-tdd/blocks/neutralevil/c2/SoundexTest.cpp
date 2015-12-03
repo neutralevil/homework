@@ -3,7 +3,7 @@
 class Soundex {
 public:
     std::string encode(const std::string& word) {
-        return "A";
+        return word;
     }
 };
 
