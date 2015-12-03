@@ -7,7 +7,10 @@ public:
     }
 };
 
+using namespace testing;
+
 TEST(SoundexEncoding, RetainsSoleLetterOfOneLetterWord) {
     Soundex soundex;
     auto encoded = soundex.encode("A");
+    ASSERT_THAT(encoded, Eq("A"));
 }
