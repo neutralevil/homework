@@ -1,5 +1,8 @@
+INCLUDE(biicode/cmake/tools)
 
 ADD_BII_TARGETS()
+
+ACTIVATE_CPP11()
 
 ###############################################################################
 #      HELP                                                                   #
