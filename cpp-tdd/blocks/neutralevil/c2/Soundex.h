@@ -9,6 +9,8 @@ public:
     }
 
 private:
+    static const size_t MaxCodeLength = 4;
+
     std::string head(const std::string& word) const {
         return word.substr(0, 1);
     }
@@ -20,7 +22,7 @@ private:
     }
 
     std::string zeroPad(const std::string& word) const {
-        auto zeroNeeded = 4 - word.length();
+        auto zeroNeeded = MaxCodeLength - word.length();
         return word + std::string(zeroNeeded, '0');
     }
 };
