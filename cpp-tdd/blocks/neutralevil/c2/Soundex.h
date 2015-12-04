@@ -23,7 +23,10 @@ private:
     std::string encodedDigits(const std::string& word) const {
         if (word.empty())
             return "";
-        return encodeDigit(word.front());
+        std::string encoding;
+        for (auto letter: word)
+            encoding += encodeDigit(letter);
+        return encoding;
     }
 
     std::string encodeDigit(char letter) const {
