@@ -17,8 +17,12 @@ private:
 
     std::string encodedDigits(const std::string& word) const {
         if (word.length() > 1)
-            return "1";
+            return encodeDigit();
         return "";
+    }
+
+    std::string encodeDigit() const {
+        return "1";
     }
 
     std::string zeroPad(const std::string& word) const {
