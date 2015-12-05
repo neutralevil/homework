@@ -9,6 +9,21 @@ public:
         return zeroPad(head(word) + encodedDigits(tail(word)));
     }
 
+    std::string encodedDigit(char letter) const {
+        std::unordered_map<char, std::string> encodings = {
+                {'b', "1"}, {'f', "1"}, {'p', "1"}, {'v', "1"},
+                {'c', "2"}, {'g', "2"}, {'j', "2"}, {'k', "2"}, {'q', "2"},
+                {'s', "2"}, {'x', "2"}, {'z', "2"},
+                {'d', "3"}, {'t', "3"},
+                {'l', "4"},
+                {'m', "5"}, {'n', "5"},
+                {'r', "6"},
+        };
+
+        auto it = encodings.find(letter);
+        return (it == encodings.end()) ? "" : it->second;
+    }
+
 private:
     static const size_t MaxCodeLength = 4;
 
@@ -25,28 +40,13 @@ private:
         for (auto letter: word) {
             if (isComplete(encoding))
                 break;
-            encoding += encodeDigit(letter);
+            encoding += encodedDigit(letter);
         }
         return encoding;
     }
 
     bool isComplete (const std::string& encoding) const {
         return encoding.length() == MaxCodeLength -1;
-    }
-
-    std::string encodeDigit(char letter) const {
-        std::unordered_map<char, std::string> encodings = {
-                {'b', "1"}, {'f', "1"}, {'p', "1"}, {'v', "1"},
-                {'c', "2"}, {'g', "2"}, {'j', "2"}, {'k', "2"}, {'q', "2"},
-                            {'s', "2"}, {'x', "2"}, {'z', "2"},
-                {'d', "3"}, {'t', "3"},
-                {'l', "4"},
-                {'m', "5"}, {'n', "5"},
-                {'r', "6"},
-        };
-
-        auto it = encodings.find(letter);
-        return (it == encodings.end()) ? "" : it->second;
     }
 
     std::string zeroPad(const std::string& word) const {
