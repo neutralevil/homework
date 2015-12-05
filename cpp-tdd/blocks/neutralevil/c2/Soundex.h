@@ -21,11 +21,12 @@ public:
         };
 
         auto it = encodings.find(letter);
-        return (it == encodings.end()) ? "" : it->second;
+        return (it == encodings.end()) ? NotADigit : it->second;
     }
 
 private:
     static const size_t MaxCodeLength = 4;
+    const std::string NotADigit = "*";
 
     std::string upperFront(const std::string& word) const {
         return std::string(1, std::toupper(word.front()));
@@ -40,8 +41,9 @@ private:
         for (auto letter: word) {
             if (isComplete(encoding))
                 break;
-            if (encodedDigit(letter) != lastDigit(encoding))
-                encoding += encodedDigit(letter);
+            auto digit = encodedDigit(letter);
+            if (digit != NotADigit && digit != lastDigit(encoding))
+                encoding += digit;
         }
         return encoding;
     }
@@ -52,7 +54,7 @@ private:
 
     std::string lastDigit(const std::string& encoding) const {
         if (encoding.empty())
-            return "";
+            return NotADigit;
         return std::string(1, encoding.back());
     }
 
