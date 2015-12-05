@@ -35,3 +35,7 @@ TEST_F(SoundexEncoding, LimitsLengthToFourCharacters) {
 TEST_F(SoundexEncoding, IgnoresVowelLikeLetters) {
     ASSERT_THAT(soundex.encode("Baeiouhycdl"), Eq("B234"));
 }
+
+TEST_F(SoundexEncoding, CombinesDuplicateEncodings) {
+    ASSERT_THAT(soundex.encode("Abfcgdt"), Eq("A123"));
+}
