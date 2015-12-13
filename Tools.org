@@ -2,3 +2,8 @@
 ** Library
 *** AssertJ
 Fluent assertions for java.
+* Python
+** PEP
+*** PEP-0008: Style Guide for Python Code
+[[https://www.python.org/dev/peps/pep-0008/#indentation][PEP 0008 -- Style Guide for Python Code | Python.org]]
+*** PEP-0484: Type Hints
